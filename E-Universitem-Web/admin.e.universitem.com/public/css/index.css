@@ -1,0 +1,210 @@
+:root.light {
+  --bg-color: #FBFBFB; /* Beyaz renk */
+  --main-color: #6482ad; /* Sarı renk */
+  --text-color: #000; /* Siyah renk */
+  --text-color-2: #fff; /* Siyah renk */
+  --form-bg-color: #fff; /* Beyaz renk */
+  --loader-color-1: rgba(0, 115, 130, 0.75); /* Koyu Mavi-Yeşil */
+  --loader-color-2: rgba(182, 126, 25, 0.75); /* Koyu Sarı */
+  --loader-color-3: rgba(176, 15, 78, 0.75); /* Koyu Pembe */
+  --loader-color-4: rgba(38, 125, 98, 0.75); /* Koyu Yeşil */
+}
+
+:root.dark {
+  --bg-color: #212121; /* Siyah renk */
+  --main-color: #ffcc00; /* Sarı renk */
+  --text-color: #fff; /* Beyaz renk */
+  --text-color-2: #000; /* Siyah renk */
+  --form-bg-color: #444; /* Koyu Gri */
+  --loader-color-1: rgba(111, 202, 220, 1); /* Açık Mavi-Yeşil */
+  --loader-color-2: rgba(233, 169, 32, 1); /* Parlak Sarı */
+  --loader-color-3: rgba(225, 20, 98, 1); /* Canlı Pembe */
+  --loader-color-4: rgba(61, 184, 143, 1); /* Parlak Yeşil */
+}
+
+/* Loader */
+.loader-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  z-index: 1001;
+  position: fixed;
+}
+
+/* From Uiverse.io by SchawnnahJ */
+.loader {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+}
+
+.loader:before {
+  animation: before8 2s infinite;
+}
+
+.loader:after {
+  animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+  0% {
+    width: 0.5em;
+    box-shadow: 1em -0.5em var(--loader-color-1), -1em 0.5em var(--loader-color-2);
+  }
+
+  35% {
+    width: 2.5em;
+    box-shadow: 0 -0.5em var(--loader-color-1), 0 0.5em var(--loader-color-2);
+  }
+
+  70% {
+    width: 0.5em;
+    box-shadow: -1em -0.5em var(--loader-color-1), 1em 0.5em var(--loader-color-2);
+  }
+
+  100% {
+    box-shadow: 1em -0.5em var(--loader-color-1), -1em 0.5em var(--loader-color-2);
+  }
+}
+
+@keyframes after6 {
+  0% {
+    height: 0.5em;
+    box-shadow: 0.5em 1em var(--loader-color-3), -0.5em -1em var(--loader-color-4);
+  }
+
+  35% {
+    height: 2.5em;
+    box-shadow: 0.5em 0 var(--loader-color-3), -0.5em 0 var(--loader-color-4);
+  }
+
+  70% {
+    height: 0.5em;
+    box-shadow: 0.5em -1em var(--loader-color-3), -0.5em 1em var(--loader-color-4);
+  }
+
+  100% {
+    box-shadow: 0.5em 1em var(--loader-color-3), -0.5em -1em var(--loader-color-4);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--bg-color);
+  font-family: "Sen", sans-serif; /* Roboto fontunu kullan */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--form-bg-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h1 {
+  color: var(--main-color);
+  margin-bottom: 30px;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-box form input {
+  display: flex;
+  width: 80%;
+  height: 30px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.login-box form input:focus {
+  outline: none;
+}
+
+.login-box form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 20px 0;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--main-color);
+  color: var(--text-color-2);
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .login-box {
+    width: 80%;
+  }
+
+  .login-box h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-box form input {
+    width: 90%;
+  }
+
+  .login-box form button {
+    width: 90%;
+  }
+}

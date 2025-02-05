@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/loginbackground">
+
+    <!-- Başlık -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <!-- Öğrenci Girişi Butonu -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="Kim Olarak Giriş Yapmak İstiyorsunuz?"
+        android:textColor="@color/purple"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/studentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Öğrenci Girişi"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:elevation="4dp"
+        app:cornerRadius="20dp" />
+
+    <!-- Öğretmen Girişi Butonu -->
+
+    <Button
+        android:id="@+id/teacherButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:elevation="4dp"
+        android:padding="12dp"
+        android:text="Öğretmen Girişi"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+
+</LinearLayout>

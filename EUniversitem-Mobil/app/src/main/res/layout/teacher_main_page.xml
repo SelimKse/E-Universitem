@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Çıkış yap ikonu butonunu en üstte ekliyoruz -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <!-- Logo Sol Tarafta -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:adjustViewBounds="true"
+            android:contentDescription="Logo"
+            android:scaleType="centerInside"
+            android:src="@drawable/logosiyah" />
+
+
+        <!-- Spacer: Boş alan bırakarak sağdaki öğeyi en sağa yaslar -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <!-- Çıkış Butonu Sağ Tarafta -->
+        <ImageButton
+            android:id="@+id/logoutButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Logout"
+            android:src="@drawable/ic_logout"
+            app:tint="?attr/colorPrimary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="50dp"
+            android:text="Yoklama Başlat"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/courseSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/classSpinner"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/border_style"
+            android:padding="10dp"
+            android:popupBackground="@color/cardview_dark_background"
+            android:textColor="@android:color/black" />
+
+        <Spinner
+            android:id="@+id/classSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/border_style"
+            android:textColor="@android:color/black"
+            android:padding="10dp"
+            android:popupBackground="@color/cardview_dark_background"
+            />
+
+        <!-- Ders Seçim (Spinner) -->
+
+        <!-- Tarih Seçim (EditText) -->
+        <EditText
+            android:id="@+id/dateTimeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/border_style"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="Tarih ve Saat Seç"
+            android:inputType="none"
+            android:padding="12dp" />
+
+        <!-- Read-only TextBox -->
+        <EditText
+            android:id="@+id/readonlyTextBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dateTimeEditText"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/border_style"
+            android:clickable="false"
+            android:focusable="false"
+            android:padding="12dp"
+            android:text="Öğretmen Adı Soyadı"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/yoklamaBaslatButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Yoklama Başlat" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

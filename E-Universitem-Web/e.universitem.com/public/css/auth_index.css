@@ -1,0 +1,184 @@
+:root.light {
+  --bg-color: #dff2eb; /* Beyaz renk */
+  --main-color: #6482ad; /* Sarı renk */
+  --text-color: #000; /* Siyah renk */
+  --text-color-2: #000; /* Beyaz renk */
+  --login-box-bg-color: #4d6e8c; /* Mavi renk */
+}
+
+:root.dark {
+  --bg-color: #212121; /* Siyah renk */
+  --main-color: #ffcc00; /* Sarı renk */
+  --text-color: #fff; /* Beyaz renk */
+  --text-color-2: #000; /* Siyah renk */
+  --login-box-bg-color: #424242; /* Gri renk */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Sen", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+.loginBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--login-box-bg-color);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px var(--main-color);
+  width: 50%;
+  height: 50%;
+}
+
+.loginBox div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 47.5%;
+  height: 100%;
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+}
+
+.loginBox div img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 50px 0;
+}
+
+.loginBox div h2 {
+  color: var(--text-color-2);
+  margin-bottom: 20px;
+}
+
+.loginBox div button {
+  background-color: var(--main-color);
+  color: var(--text-color-2);
+  padding: 20px 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.loginBox div button:hover,
+.loginBox div:hover {
+  scale: 1.025;
+  transition: 0.3s;
+}
+
+.loginBox div button:not(:hover),
+.loginBox div:not(:hover) {
+  transition: 0.3s;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .loginBox {
+    width: 80%;
+  }
+
+  .loginBox div img {
+    width: 100px;
+    height: 100px;
+    margin: 20px 0;
+  }
+
+  .loginBox div h2 {
+    font-size: 1.5rem;
+  }
+
+  .loginBox div button {
+    padding: 10px 30px;
+    font-size: 1rem;
+  }
+
+  .loginBox div button:hover,
+  .loginBox div:hover {
+    scale: 1.025;
+    transition: 0.3s;
+  }
+
+  .loginBox div button:not(:hover),
+  .loginBox div:not(:hover) {
+    transition: 0.3s;
+  }
+
+  .container {
+    height: 100%;
+  }
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .loginBox {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .loginBox div {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .loginBox div img {
+    width: 80px;
+    height: 80px;
+    margin: 10px 0;
+  }
+
+  .loginBox div h2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .loginBox div button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    margin: 10px 0 20px 0;
+  }
+
+  .loginBox div button:hover,
+  .loginBox div:hover {
+    scale: 1.025;
+    transition: 0.3s;
+  }
+
+  .loginBox div button:not(:hover),
+  .loginBox div:not(:hover) {
+    transition: 0.3s;
+  }
+
+  .container {
+    height: 100%;
+  }
+}

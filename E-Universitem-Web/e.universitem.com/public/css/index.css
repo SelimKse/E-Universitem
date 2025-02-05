@@ -1,0 +1,815 @@
+:root.light {
+  --bg-color: #dff2eb; /* Beyaz renk */
+  --main-color: #6482ad; /* Sarı renk */
+  --text-color: #000; /* Siyah renk */
+  --text-color-2: #000; /* Siyah renk */
+  --div-gradiant: linear-gradient(135deg, #4a6e9b 0%, #a6c8e0 100%);
+  --moz-div-gradiant: -moz-linear-gradient(135deg, #4a6e9b 0%, #a6c8e0 100%);
+  --webkit-div-gradiant: -webkit-linear-gradient(135deg, #4a6e9b 0%, #a6c8e0 100%);
+  --loader-color-1: rgba(0, 115, 130, 0.75); /* Koyu Mavi-Yeşil */
+  --loader-color-2: rgba(182, 126, 25, 0.75); /* Koyu Sarı */
+  --loader-color-3: rgba(176, 15, 78, 0.75); /* Koyu Pembe */
+  --loader-color-4: rgba(38, 125, 98, 0.75); /* Koyu Yeşil */
+}
+
+:root.dark {
+  --bg-color: #212121; /* Siyah renk */
+  --main-color: #ffcc00; /* Sarı renk */
+  --text-color: #fff; /* Beyaz renk */
+  --text-color-2: #000; /* Siyah renk */
+  --div-gradiant: linear-gradient(135deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+  --moz-div-gradiant: -moz-linear-gradient(135deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+  --webkit-div-gradiant: -webkit-linear-gradient(135deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+  --loader-color-1: rgba(111, 202, 220, 1); /* Açık Mavi-Yeşil */
+  --loader-color-2: rgba(233, 169, 32, 1); /* Parlak Sarı */
+  --loader-color-3: rgba(225, 20, 98, 1); /* Canlı Pembe */
+  --loader-color-4: rgba(61, 184, 143, 1); /* Parlak Yeşil */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* loader */
+.loader-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  z-index: 1001;
+  position: fixed;
+}
+
+/* From Uiverse.io by SchawnnahJ */
+.loader {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+}
+
+.loader:before {
+  animation: before8 2s infinite;
+}
+
+.loader:after {
+  animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+  0% {
+    width: 0.5em;
+    box-shadow: 1em -0.5em var(--loader-color-1), -1em 0.5em var(--loader-color-2);
+  }
+
+  35% {
+    width: 2.5em;
+    box-shadow: 0 -0.5em var(--loader-color-1), 0 0.5em var(--loader-color-2);
+  }
+
+  70% {
+    width: 0.5em;
+    box-shadow: -1em -0.5em var(--loader-color-1), 1em 0.5em var(--loader-color-2);
+  }
+
+  100% {
+    box-shadow: 1em -0.5em var(--loader-color-1), -1em 0.5em var(--loader-color-2);
+  }
+}
+
+@keyframes after6 {
+  0% {
+    height: 0.5em;
+    box-shadow: 0.5em 1em var(--loader-color-3), -0.5em -1em var(--loader-color-4);
+  }
+
+  35% {
+    height: 2.5em;
+    box-shadow: 0.5em 0 var(--loader-color-3), -0.5em 0 var(--loader-color-4);
+  }
+
+  70% {
+    height: 0.5em;
+    box-shadow: 0.5em -1em var(--loader-color-3), -0.5em 1em var(--loader-color-4);
+  }
+
+  100% {
+    box-shadow: 0.5em 1em var(--loader-color-3), -0.5em -1em var(--loader-color-4);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+}
+
+body {
+  font-family: "Sen", sans-serif; /* Roboto fontunu kullan */
+  background-color: var(--bg-color); /* Siyah arka plan */
+  color: var(--text-color); /* Beyaz yazı rengi */
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--bg-color); /* Koyu gri navbar arka plan */
+  border-bottom: 1px solid var(--main-color); /* Sarı çizgi */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header div {
+  position: relative;
+  color: var(--main-color); /* Renkli e-universitem yazısı */
+  font-size: 24px;
+}
+
+header div img {
+  display: flex;
+  width: 200px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+header nav ul li {
+  margin: 0 20px;
+  transition: 0.3s;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: var(--main-color);
+  scroll-behavior: smooth;
+}
+
+header nav ul li a:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: 0.3s;
+}
+
+header nav ul li a:hover::after {
+  width: 100%;
+}
+
+header nav ul li a:hover {
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+header nav ul li a:not(:hover) {
+  transition: 0.3s;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--main-color);
+  color: var(--text-color-2);
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.settings-button {
+  display: inline-block;
+  background-color: var(--main-color);
+  color: var(--text-color-2);
+  padding: 5px 10px;
+  margin: 0 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.login-button {
+  display: inline-block;
+  background-color: var(--main-color);
+  color: var(--text-color-2);
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  scale: 1.05;
+  transition: 0.3s;
+}
+
+.settings-button:hover i {
+  animation: rotateIcon 1s ease forwards;
+  transition: 0.3s;
+}
+
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mini-navbar {
+  display: none;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 30px;
+  height: 3px;
+  background-color: var(--main-color);
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 8px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -8px) rotate(45deg);
+}
+
+/* Header */
+
+/* Main */
+
+.container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+.container .box1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 75px;
+  padding: 20px;
+  background-color: var(--bg-color);
+  box-shadow: 0px 6px 24px 0px var(--main-color);
+}
+
+.container .box1 .text {
+  display: flex;
+  flex-direction: column; /* Added to stack contents vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  width: 60%;
+  padding: 10px;
+}
+
+.container .box1 .img {
+  display: flex;
+  flex-direction: column; /* Added to stack contents vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  width: 40%;
+  padding: 10px;
+}
+
+.container .box1 img {
+  max-width: 100%; /* Maksimum genişlik */
+  max-height: 100%; /* Maksimum yükseklik */
+  object-fit: contain; /* Resmi kutuya sığdır */
+}
+
+.container .box1 h2 {
+  font-size: 32px;
+  margin: 20px;
+  color: var(--main-color);
+}
+
+.container .box1 p {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.hizmetler_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 75%;
+  padding: 20px;
+  font-size: 24px;
+  margin-top: 100px;
+}
+
+.hizmetler_header h2 {
+  color: var(--main-color);
+  margin-bottom: 20px;
+}
+
+.hizmetler_header p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.hizmetler {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 70%;
+  height: 50%;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.hizmetler div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  height: 100%;
+  min-height: 400px;
+  min-width: 200px;
+  padding: 10px;
+  border-radius: 15px;
+  color: var(--text-color-2);
+  background: var(--div-gradiant);
+  background: var(--moz-div-gradiant);
+  background: var(--webkit-div-gradiant);
+}
+
+.hizmetler div:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.hizmetler div:not(:hover) {
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+.hizmetler div img {
+  width: 100px;
+  height: 100px;
+  margin: 20px 0;
+}
+
+.hizmetler div h3 {
+  font-size: 24px;
+  margin: 10px;
+  text-align: center;
+}
+
+.hizmetler div p {
+  font-size: 16px;
+  text-align: center;
+  margin: 10px;
+}
+
+.hedefimiz_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 75%;
+  padding: 20px;
+  margin-top: 100px;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  box-shadow: 0px 6px 24px 0px var(--main-color);
+}
+
+.hedefimiz_box h2 {
+  font-size: 36px;
+  color: var(--main-color);
+  margin: 20px 0;
+}
+
+.hedefimiz_box p {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 100px;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--main-color);
+  padding: 20px;
+  flex-direction: column;
+}
+
+footer p {
+  margin: 3px;
+  color: var(--main-color);
+  font-size: 18px;
+}
+
+/* Main */
+
+@media screen and (max-width: 1024px) {
+  .container .box1 {
+    flex-direction: column-reverse;
+    width: 85%;
+    padding: 5px;
+    margin-top: 50px;
+  }
+
+  .container .box1 h2 {
+    font-size: min(5vw, 24px);
+    margin: 10px;
+  }
+
+  .container .box1 p {
+    font-size: min(5vw, 16px);
+    margin: 10px;
+  }
+
+  .container .box1 .text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .container .box1 .img {
+    width: 100%;
+  }
+
+  .hizmetler_header {
+    width: 85%;
+    padding: 10px;
+    font-size: min(5vw, 24px);
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  header nav ul li {
+    margin: 0 10px;
+    transition: 0.3s;
+  }
+
+  .hizmetler {
+    flex-direction: column;
+    width: 75%;
+    height: auto;
+  }
+
+  .hizmetler div {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin: 10px;
+  }
+
+  .hizmetler div img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hizmetler div h3 {
+    font-size: min(5vw, 20px);
+  }
+
+  .hizmetler div p {
+    font-size: min(5vw, 14px);
+  }
+
+  .hedefimiz_box {
+    width: 85%;
+  }
+
+  .hedefimiz_box h2 {
+    font-size: min(5vw, 24px);
+    margin: 10px 0;
+  }
+
+  .hedefimiz_box p {
+    font-size: min(5vw, 16px);
+    margin: 10px;
+  }
+
+  footer p {
+    color: var(--main-color);
+    font-size: min(5vw, 16px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mini-navbar {
+    display: inline-block;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+    border: none;
+  }
+
+  header .button {
+    display: none;
+  }
+
+  header .settings-button {
+    display: flex;
+  }
+
+  .dropdown-menu.show {
+    top: 60px;
+    right: 70px;
+  }
+
+  header div {
+    margin-left: 10px;
+  }
+
+  header div img {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -12px; /* Şapkanın yukarıya yerleşmesi için ayar */
+    right: 145px; /* Yazının sağ üstüne kaydırmak için */
+    transform: rotate(-15deg) scaleX(-1); /* Şapkanın dönmesi ve büyümesi */
+  }
+
+  header nav ul {
+    display: none;
+    transition: 0.3s;
+  }
+
+  header nav ul li {
+    margin: 5px 0;
+  }
+
+  header nav ul li a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .container .box1 {
+    width: 80%;
+  }
+
+  .container .box1 .img {
+    display: none;
+  }
+
+  .container .box1 .text {
+    width: 100%;
+  }
+
+  .hizmetler_header {
+    width: 80%;
+    padding: 5px;
+    font-size: min(5vw, 18px);
+    margin-top: 100px;
+  }
+
+  .hizmetler_header h2 {
+    margin-bottom: 10px;
+  }
+
+  .hizmetler_header p {
+    margin-top: 10px;
+    font-size: min(5vw, 16px);
+  }
+
+  .hizmetler {
+    flex-direction: column;
+    width: 75%;
+    height: auto;
+  }
+
+  .hizmetler div {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin: 10px;
+  }
+
+  .hizmetler div img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hizmetler div h3 {
+    font-size: min(5vw, 18px);
+  }
+
+  .hizmetler div p {
+    font-size: min(5vw, 12px);
+  }
+
+  .hedefimiz_box {
+    width: 80%;
+    padding: 5px;
+  }
+
+  .hedefimiz_box h2 {
+    font-size: min(5vw, 20px);
+    margin: 5px 0;
+  }
+
+  .hedefimiz_box p {
+    font-size: min(5vw, 14px);
+    margin: 5px;
+    text-align: center;
+  }
+
+  footer {
+    width: 100%;
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  footer p {
+    font-size: min(5vw, 12px);
+  }
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Animasyonlar */
+  transform: translateX(-100%);
+  opacity: 0; /* Başlangıçta görünmez */
+}
+
+.mobile-menu.show {
+  transform: translateX(0); /* Menü kayarak açılır */
+  opacity: 1; /* Opaklık artar */
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.mobile-menu ul li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: var(--main-color);
+  font-size: 24px;
+  text-align: center;
+}
+
+.mobile-menu .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.mobile-menu .navbar-close {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--main-color);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: -15px;
+  right: -5px;
+  transition: 0.3s;
+}
+
+.mobile-menu:not(.show) {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px; /* butonun altına konumlandır */
+  right: 105px; /* butonun sağında açılması için */
+  background-color: var(--bg-color);
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  display: none; /* Başlangıçta gizli */
+  z-index: 1000;
+  padding: 5px;
+  user-select: none;
+}
+
+.dropdown-menu.show {
+  display: block; /* Açıldığında görünür */
+}
+
+.dropdown-menu .radio {
+  display: flex;
+  align-items: center; /* İkon ve yazıyı dikey olarak ortalar */
+  margin: 5px 0;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+}
+
+.dropdown-menu .radio:hover {
+  background-color: var(--main-color);
+  border-radius: 5px;
+  color: var(--text-color-2);
+}
+
+.dropdown-menu .radio:not(:hover) {
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  color: var(--main-color);
+}
+
+.dropdown-menu .radio span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* İkon boyutunu ayarla */
+  margin-right: 10px; /* İkon ile yazı arasına boşluk */
+}
+
+.dropdown-menu .radio h6 {
+  font-size: 16px; /* Yazı boyutunu ayarla */
+  margin: 0;
+}

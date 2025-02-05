@@ -1,0 +1,823 @@
+:root.light {
+  --bg-color: #FBFBFB; /* Beyaz renk */
+  --main-color: #FF2929; /* Sarı renk */
+  --header-bg-color: #161a2d; /* Sarı renk */
+  --text-color-light: #000; /* Siyah renk */
+  --text-color-dark: #fff; /* Siyah renk */
+  --list-color: #d3d3d3; /* Siyah renk */
+  --loader-color-1: rgba(0, 115, 130, 0.75); /* Koyu Mavi-Yeşil */
+  --loader-color-2: rgba(182, 126, 25, 0.75); /* Koyu Sarı */
+  --loader-color-3: rgba(176, 15, 78, 0.75); /* Koyu Pembe */
+  --loader-color-4: rgba(38, 125, 98, 0.75); /* Koyu Yeşil */
+}
+
+:root.dark {
+  --bg-color: #454545; /* Siyah renk */
+  --main-color: #ffcc00; /* Sarı renk */
+  --header-bg-color: #161a2d; /* Sarı renk */
+  --text-color-light: #fff; /* Beyaz renk */
+  --text-color-dark: #000; /* Siyah renk */
+  --list-color: #a9a9a9; /* Siyah renk */
+  --loader-color-1: rgba(111, 202, 220, 1); /* Açık Mavi-Yeşil */
+  --loader-color-2: rgba(233, 169, 32, 1); /* Parlak Sarı */
+  --loader-color-3: rgba(225, 20, 98, 1); /* Canlı Pembe */
+  --loader-color-4: rgba(61, 184, 143, 1); /* Parlak Yeşil */
+}
+/* Loader */
+.loader-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  z-index: 1001;
+  position: fixed;
+}
+
+/* From Uiverse.io by SchawnnahJ */
+.loader {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+}
+
+.loader:before {
+  animation: before8 2s infinite;
+}
+
+.loader:after {
+  animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+  0% {
+    width: 0.5em;
+    box-shadow: 1em -0.5em var(--loader-color-1), -1em 0.5em var(--loader-color-2);
+  }
+
+  35% {
+    width: 2.5em;
+    box-shadow: 0 -0.5em var(--loader-color-1), 0 0.5em var(--loader-color-2);
+  }
+
+  70% {
+    width: 0.5em;
+    box-shadow: -1em -0.5em var(--loader-color-1), 1em 0.5em var(--loader-color-2);
+  }
+
+  100% {
+    box-shadow: 1em -0.5em var(--loader-color-1), -1em 0.5em var(--loader-color-2);
+  }
+}
+
+@keyframes after6 {
+  0% {
+    height: 0.5em;
+    box-shadow: 0.5em 1em var(--loader-color-3), -0.5em -1em var(--loader-color-4);
+  }
+
+  35% {
+    height: 2.5em;
+    box-shadow: 0.5em 0 var(--loader-color-3), -0.5em 0 var(--loader-color-4);
+  }
+
+  70% {
+    height: 0.5em;
+    box-shadow: 0.5em -1em var(--loader-color-3), -0.5em 1em var(--loader-color-4);
+  }
+
+  100% {
+    box-shadow: 0.5em 1em var(--loader-color-3), -0.5em -1em var(--loader-color-4);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Sen", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var();
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-bg-color);
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 30px;
+}
+
+header nav h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+header nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 20px;
+}
+
+header nav div i {
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  transition: 0.2s ease;
+  display: flex;
+}
+
+header nav div i.fa-sun,
+header nav div i.fa-moon {
+  transition: 0.2s ease;
+}
+
+header nav div i:hover {
+  color: var(--main-color);
+}
+
+@keyframes icon-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-icon {
+  animation: icon-animation 0.5s ease;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80px;
+  display: flex;
+  overflow-x: hidden;
+  flex-direction: column;
+  background: var(--header-bg-color);
+  padding: 25px 20px;
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  width: 300px;
+}
+
+.sidebar .sidebar-button {
+  display: none;
+}
+
+.sidebar .sidebar-header h3 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 23px;
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .sidebar-header button {
+  display: none;
+}
+
+.sidebar .sidebar-header img {
+  width: 42px;
+  border-radius: 50%;
+}
+
+.sidebar .sidebar-header h2 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 23px;
+}
+
+.sidebar-links h4 {
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  margin: 10px 0;
+  position: relative;
+}
+
+.sidebar-links h4 span {
+  opacity: 0;
+}
+
+.sidebar:hover .sidebar-links h4 span {
+  opacity: 1;
+}
+
+.sidebar-links .menu-separator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(1);
+  transform: translateY(-50%);
+  background: var(--header-bg-color);
+  transform-origin: right;
+  transition-delay: 0.2s;
+}
+
+.sidebar:hover .sidebar-links .menu-separator {
+  transition-delay: 0s;
+  transform: scaleX(0);
+}
+
+.sidebar-links {
+  list-style: none;
+  margin-top: 20px;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.sidebar-links::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-links li a {
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 15px 10px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.sidebar-links li a:hover {
+  color: var(--main-color);
+  background: var(--header-bg-color);
+  border-radius: 4px;
+}
+
+/* Accordion Menü */
+.accordion-menu {
+  max-height: 0; /* Başlangıçta görünmeyecek */
+  overflow: hidden;
+  transition: max-height 0.4s ease-out; /* Animasyonlu açılma/kapanma */
+  list-style: none;
+  padding-left: 20px;
+}
+
+/* Accordion menü elemanlarının arası */
+.accordion-menu li {
+  margin-top: 5px;
+}
+
+/* Menüdeki linklerin stili */
+.accordion-menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.accordion-menu li a:hover {
+  text-decoration: underline;
+}
+
+/* Küçük Ok için Stiller */
+.arrow {
+  transform: rotate(-90deg);
+  transition: transform 0.4s ease; /* Dönme animasyonu */
+  margin-left: 10px;
+}
+
+/* Ok döndüğünde */
+.rotate {
+  transform: rotate(0); /* 180 derece döner */
+}
+
+/* Container */
+
+/* Content */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background-color: var(--bg-color); /* Arka plan rengi */
+  flex: 1; /* Kalan alanı kaplamak için flex kullan */
+  margin-left: 80px; /* Sidebar genişliğini göz önünde bulundurarak marjin ekle */
+  padding: 20px; /* İçerik için biraz boşluk ekle */
+  height: calc(100vh - 80px); /* Header yüksekliğini çıkararak tam yüksekliği ayarla */
+  overflow: auto; /* İçerik taşarsa kaydırma çubuğu göster */
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.box h2 {
+  color: var(--text-color-light);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.listBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.listBox .search {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 95%;
+  position: relative; /* Kapsayıcı relative olmalı */
+}
+
+.listBox .search input {
+  padding: 5px;
+  padding-left: 30px; /* İkon ile arasında boşluk bırakmak için */
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+  font-size: calc(0.5rem + 0.5vw);
+  font-family: "Sen", sans-serif;
+}
+
+.listBox .search i {
+  position: absolute; /* İkonu konumlandırmak için absolute */
+  left: 10px; /* İkonun input içinde yer alması için sol boşluk */
+  top: 50%;
+  transform: translateY(-50%); /* İkonu dikey ortalamak için */
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.listBox .liste {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 95%;
+  height: auto;
+}
+
+.listBox .liste ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.listBox .liste ul li {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  padding: 20px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: var(--list-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.listBox .liste ul li div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+}
+
+.listBox .liste ul li div span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-light-2);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.listBox .liste ul li div .icons {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-left: auto;
+  margin-right: 10px;
+  max-width: 100px;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: clamp(0.75rem, 1vw, 1.1rem);
+}
+
+.listBox .liste ul li div .icons i {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.listBox .liste ul li div .icons i:hover {
+  scale: 1.1;
+}
+
+.editBox {
+  visibility: hidden;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.editBox.active {
+  visibility: visible; /* Görünür hale gelmesi için */
+  opacity: 1; /* Opaklık */
+}
+
+.editBox .content {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  width: 30%;
+  height: 30%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transform: scale(0.5); /* Küçültme */
+  transition: transform 0.3s ease; /* Kaydırma geçişi */
+}
+
+.editBox.active .content {
+  transform: scale(1); /* Büyütme */
+}
+
+.editBox .content h2 {
+  color: var(--text-color-light);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.editBox .content .editForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.editBox .content .editForm input {
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+  font-size: calc(0.5rem + 0.5vw);
+  font-family: "Sen", sans-serif;
+  margin: 10px 0;
+}
+
+.editBox .content .editForm button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  font-size: calc(0.5rem + 0.5vw);
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.editBox .content .editForm button:hover {
+  scale: 1.05;
+  transition: 0.5s;
+}
+
+.editBox .content .editForm button:not(:hover) {
+  transition: 0.5s;
+  scale: 1;
+}
+
+.editBox .content i {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+  transition: 0.2s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: calc(100vh - 60px);
+    margin-left: 0;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    position: relative;
+  }
+
+  header nav h4 {
+    font-size: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+
+  header nav .menu {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0px;
+    display: flex;
+    overflow-x: hidden;
+    flex-direction: column;
+    background: var(--header-bg-color);
+    transition: all 0.2s ease;
+    padding: 0;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    width: 300px;
+  }
+
+  .sidebar:not(.active) {
+    width: 0;
+  }
+
+  .sidebar .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 5px;
+  }
+
+  .sidebar .sidebar-header button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--header-bg-color);
+    color: var(--text-color-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .sidebar .sidebar-header button i {
+    font-size: 1.5rem;
+  }
+
+  .sidebar .sidebar-header img,
+  .sidebar .sidebar-header h3 {
+    display: none;
+  }
+
+  .sidebar-links h4 {
+    color: var(--text-color-light);
+    font-weight: 500;
+    white-space: nowrap;
+    margin: 10px 0;
+    position: relative;
+  }
+
+  .sidebar-links h4 span {
+    opacity: 0;
+    margin-left: 10px;
+  }
+
+  .sidebar.active .sidebar-links h4 span {
+    opacity: 1;
+    margin-left: 10px;
+  }
+
+  .sidebar-links .menu-separator {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(1);
+    transform: translateY(-50%);
+    background: var(--header-bg-color);
+    transform-origin: right;
+    transition-delay: 0.2s;
+  }
+
+  .sidebar.active .sidebar-links .menu-separator {
+    transition-delay: 0s;
+    transform: scaleX(0);
+  }
+
+  .sidebar-links {
+    list-style: none;
+    margin-top: 10px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .sidebar-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-links li {
+    margin-left: 20px;
+  }
+
+  .sidebar-links li:last-child {
+    margin-bottom: 20px;
+  }
+
+  .sidebar-links li a {
+    display: flex;
+    align-items: center;
+    gap: 0 20px;
+    color: var(--text-color-light);
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 15px 10px;
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+
+  .sidebar-links li a:hover {
+    color: var(--main-color);
+    background: var(--header-bg-color);
+    border-radius: 4px;
+  }
+
+  .listBox .search i {
+    position: absolute;
+    left: 7.5px;
+    top: 48.5%;
+    transform: translateY(-50%);
+    color: var(--text-color-light-2);
+    z-index: 10;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .listBox .search input {
+    padding: 5px;
+    padding-left: 30px;
+    border: 1px solid var(--text-color-light-2);
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    font-size: clamp(1rem, 1vw, 2rem);
+    font-family: "Sen", sans-serif;
+  }
+
+  .listBox .liste ul li div span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color-light-2);
+    font-size: clamp(0.75rem, 1vw, 1.1rem);
+    font-weight: 500;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  .listBox .liste ul li div .icons {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 5px;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: clamp(0.75rem, 1vw, 1rem);
+  }
+
+  .container .editBox .content {
+    width: 90%;
+    height: 30%;
+  }
+
+  .container .editBox .content .editForm {
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+  }
+
+  .container .editBox .content h2 {
+    font-size: clamp(1rem, 1vw, 1.5rem);
+  }
+
+  .container .editBox .content .editForm input {
+    font-size: clamp(0.75rem, 1vw, 1rem);
+  }
+
+  .container .editBox .content .editForm button {
+    font-size: clamp(0.75rem, 1vw, 1rem);
+  }
+}

@@ -1,0 +1,390 @@
+:root.light {
+  --bg-color: #dff2eb; /* Beyaz renk */
+  --main-color: #6482ad; /* Sarı renk */
+  --header-text-color: #fff; /* Siyah renk */
+  --text-color: #000; /* Siyah renk */
+  --text-color-2: #fff; /* Beyaz renk */
+  --login-box-bg-color: #4d6e8c; /* Mavi renk */
+  --label-color: #fff; /* Beyaz renk */
+}
+
+:root.dark {
+  --bg-color: #212121; /* Siyah renk */
+  --main-color: #ffcc00; /* Sarı renk */
+  --text-color: #fff; /* Beyaz renk */
+  --text-color-2: #000; /* Siyah renk */
+  --login-box-bg-color: #424242; /* Gri renk */
+  --header-text-color: #fff; /* Beyaz renk */
+  --label-color: #fff; /* Beyaz renk */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Sen", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--login-box-bg-color);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px var(--main-color);
+  width: 50%;
+  height: 50%;
+}
+
+.login-form .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+}
+
+.login-form .img img {
+  max-width: 100%; /* Maksimum genişlik */
+  max-height: 100%; /* Maksimum yükseklik */
+  object-fit: contain; /* Resmi kutuya sığdır */
+}
+
+.login-form .form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+}
+
+.login-form .form-box h2 {
+  color: var(--header-text-color);
+  text-align: left;
+  width: 80%;
+  margin: 50px 0;
+  font-size: 2rem;
+}
+
+.login-form .form-box .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-form .form-box form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-form .form-box form input {
+  width: 80%;
+  padding: 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-form .form-box form .remember-me {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 80%;
+  margin: 5px 0 10px 0;
+  color: var(--label-color);
+}
+
+.login-form .form-box form .remember-me input {
+  margin: 0 5px 0 0;
+  width: 20px;
+}
+
+.login-form .form-box form button {
+  background-color: var(--main-color);
+  color: var(--text-color-2);
+  padding: 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 70%;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  font-size: 16px;
+  width: 75%;
+}
+
+.login-form .form-box form button:hover {
+  scale: 1.025;
+  transition: 0.3s;
+}
+
+.login-form .form-box form button:not(:hover) {
+  scale: 1;
+  transition: 0.3s;
+}
+
+.login-form .form-box .links {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 80%;
+  height: 100%;
+  margin: 5px 0;
+}
+
+.login-form .form-box .links a {
+  color: var(--label-color);
+  text-decoration: none;
+  font-weight: 500;
+  display: flex; /* Flex yapısı */
+  align-items: center; /* Ortalamak için */
+}
+/* custom chechbox */
+
+.remember-me label {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.input[type="checkbox"] {
+  display: none;
+}
+
+/* Style for the custom checkbox */
+.custom-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  margin: 0 5px 0 0;
+}
+
+/* Style for the custom checkmark */
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--main-color);
+  border-radius: 2px;
+  opacity: 0;
+}
+
+/* Show the checkmark when checkbox is checked */
+.input[type="checkbox"]:checked + .custom-checkbox::after {
+  opacity: 1;
+}
+
+/* Responsive design */
+
+@media screen and (max-width: 1024px) {
+  .container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .login-form {
+    width: 80%;
+    height: 80%;
+    flex-direction: column;
+  }
+
+  .login-form .img {
+    width: 100%;
+    height: 40%;
+  }
+
+  .login-form img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .login-form .form-box {
+    width: 100%;
+    height: 60%;
+  }
+
+  .login-form .form-box h2 {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .login-form .form-box form {
+    width: 100%;
+  }
+
+  .login-form .form-box form input {
+    width: 90%;
+  }
+
+  .login-form .form-box form .remember-me {
+    width: 90%;
+  }
+
+  .login-form .form-box form button {
+    width: 90%;
+  }
+
+  .login-form .form-box .links {
+    width: 90%;
+  }
+
+  .login-form .form-box .links a {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-form {
+    width: 70%;
+    height: 70%;
+    flex-direction: column;
+  }
+
+  .login-form .img {
+    width: 100%;
+    height: 30%;
+  }
+
+  .login-form img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .login-form .form-box {
+    width: 100%;
+    height: 70%;
+    justify-content: space-around;
+  }
+
+  .login-form .form-box .form {
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-form .form-box h2 {
+    margin: 5px 0;
+    text-align: center;
+    font-size: calc(1rem + 1vw);
+  }
+
+  .login-form .form-box form {
+    width: 100%;
+  }
+
+  .login-form .form-box form input {
+    width: 90%;
+  }
+
+  .login-form .form-box form .remember-me {
+    width: 90%;
+  }
+
+  .login-form .form-box form button {
+    width: 85%;
+    margin: 5px 0;
+  }
+
+  .login-form .form-box .links {
+    width: 90%;
+    max-height: 50px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .login-form {
+    width: 70%;
+    height: 90%;
+    flex-direction: column;
+  }
+
+  .login-form .img {
+    display: none;
+  }
+
+  .login-form .form-box {
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-form .form-box .form {
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-form .form-box h2 {
+    margin: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(1rem + 1vw);
+  }
+
+  .login-form .form-box form {
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-form .form-box form input {
+    width: 90%;
+  }
+
+  .login-form .form-box form .remember-me {
+    width: 90%;
+  }
+
+  .login-form .form-box form button {
+    width: 90%;
+  }
+
+  .login-form .form-box .links {
+    width: 90%;
+    max-height: 50px;
+    align-items: flex-end;
+  }
+
+  .login-form .form-box .links a {
+    font-size: 14px;
+  }
+}

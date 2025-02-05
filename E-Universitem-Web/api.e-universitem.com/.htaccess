@@ -1,0 +1,22 @@
+RewriteEngine On
+
+RewriteBase /
+
+# api/ogrenciler/ ile başlayan tüm istekleri ogrenciler.php dosyasına yönlendiriyoruz
+RewriteRule ^ogrenciler(/.*)?$ ogrenciler.php [NC,L]
+
+# api/ogretmenler/ ile başlayan tüm istekleri ogretmenler.php dosyasına yönlendiriyoruz
+RewriteRule ^ogretmenler(/.*)?$ ogretmenler.php [NC,L]
+
+# api/siniflar/ ile başlayan tüm istekleri siniflar.php dosyasına yönlendiriyoruz
+RewriteRule ^siniflar(/.*)?$ siniflar.php [NC,L]
+
+# api/dersler/ ile başlayan tüm istekleri dersler.php dosyasına yönlendiriyoruz
+RewriteRule ^dersler(/.*)?$ dersler.php [NC,L]
+
+RewriteRule ^yoklamalar(/.*)?$ yoklamalar.php [NC,L]
+
+RewriteRule ^login(/.*)?$ logins.php [NC,L]
+
+# Varsayılan olarak ogrenciler.php'yi yönlendiriyoruz
+RewriteRule ^$ index.php [NC,L]

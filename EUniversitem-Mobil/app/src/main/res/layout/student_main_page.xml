@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Çıkış yap ikonu butonunu en üstte ekliyoruz -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <!-- Logo Sol Tarafta -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:adjustViewBounds="true"
+            android:contentDescription="Logo"
+            android:scaleType="centerInside"
+            android:src="@drawable/logosiyah" />
+
+
+        <!-- Spacer: Boş alan bırakarak sağdaki öğeyi en sağa yaslar -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <!-- Çıkış Butonu Sağ Tarafta -->
+        <ImageButton
+            android:id="@+id/logoutButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Logout"
+            android:src="@drawable/ic_logout"
+            app:tint="?attr/colorPrimary" />
+    </LinearLayout>
+
+
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/border_layout"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <TextView
+        android:id="@+id/qrTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="QR Kod ile katılın!"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/qrImageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_baseline_qr_code_scanner"
+        app:tint="?attr/colorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="QR Kod okutmak için butona tıklayın."
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/qrCodeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/button_background"
+        android:text="QR Kod Oku" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_weight="0" />
+
+    <!-- Boş olan kısmı input ve butonla dolduruyoruz -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:gravity="center"
+        android:background="@drawable/border_layout">
+
+        <TextView
+            android:id="@+id/kodTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Yoklama kodu ile katılın!"
+            android:textSize="20sp" />
+
+        <!-- 8 haneli input alanı -->
+        <EditText
+            android:id="@+id/inputYoklamaCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="8 haneli rakam girin"
+            android:maxLength="8"
+            android:inputType="number"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/input_border"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+        <!-- Veri gönderme butonu -->
+        <Button
+            android:id="@+id/sendCodeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Kod ile katıl"
+            android:background="@drawable/button_background"
+            android:textSize="16sp"
+            android:padding="14dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
