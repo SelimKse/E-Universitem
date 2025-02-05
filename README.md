@@ -23,7 +23,7 @@ Bu proje, okul yoklamalarını elektronik ortama taşımayı hedefleyen bir yaz�
 ### Web Versiyonu
 1. Bu depoyu bilgisayarına klonla:
     ```bash
-    git clone <GitHub URL>
+    git clone [https://github.com/SelimKse/E-Universitem.git](https://github.com/SelimKse/E-Universitem.git)
     ```
 2. Gereksinimleri yükle:
     ```bash
@@ -45,7 +45,7 @@ Bu proje, okul yoklamalarını elektronik ortama taşımayı hedefleyen bir yaz�
 
 ## Teknolojiler
 - Web: PHP (Laravel olmadan sade PHP), MySQL
-- Mobil: Android Studio (Java veya Kotlin)
+- Mobil: Android Studio (Java)
 
 ## Katkıda Bulunma
 Katkıda bulunmak isterseniz lütfen bir pull request oluşturun.
@@ -54,4 +54,4 @@ Katkıda bulunmak isterseniz lütfen bir pull request oluşturun.
 Bu proje MIT Lisansı ile lisanslanmıştır.
 
 ## İletişim
-Sorularınız için e-posta: [euniversitem@example.com](mailto:euniversitem@example.com)
+Sorularınız için e-posta: [bilgi@e-universitem.com](mailto:bilgi@e-universitem.com)
