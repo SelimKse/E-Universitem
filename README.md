@@ -23,7 +23,7 @@ Bu proje, okul yoklamalarını elektronik ortama taşımayı hedefleyen bir yaz�
 ### Web Versiyonu
 1. Bu depoyu bilgisayarına klonla:
     ```bash
-    git clone [https://github.com/SelimKse/E-Universitem.git](https://github.com/SelimKse/E-Universitem.git)
+    git clone https://github.com/SelimKse/E-Universitem.git
     ```
 2. Gereksinimleri yükle:
     ```bash
